@@ -1,12 +1,14 @@
 int u;
 string[] happyNewYear(string w) 
 {
-    var v = w.Split();
-    var m = v.Max(a => a.Length);
+    var v = w.Split();  //split at '', returns an array of strings
+    var m = v.Max(a => a.Length);   //lambda expression  https://msdn.microsoft.com/en-us/library/bb397687.aspx
     
     var r = new string[v.Count() + 2];
     foreach(var p in v)
-        r[++u] = "* " + p.PadRight(m) + " *";
+        //padright(m) - Returns a new string that left-aligns the characters in this string by padding
+        //them with spaces on the right, for a specified total length.
+        r[++u] = "* " + p.PadRight(m) + " *";   
     
     r[++u] = r[0] = "".PadLeft(m + 4, '*');
     
