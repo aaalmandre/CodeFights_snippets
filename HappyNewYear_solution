@@ -1,0 +1,44 @@
+int u;
+string[] happyNewYear(string w) 
+{
+    var v = w.Split();
+    var m = v.Max(a => a.Length);
+    
+    var r = new string[v.Count() + 2];
+    foreach(var p in v)
+        r[++u] = "* " + p.PadRight(m) + " *";
+    
+    r[++u] = r[0] = "".PadLeft(m + 4, '*');
+    
+    return r;
+}
+
+
+/* long, lame version
+string[] happyNewYear(string wish) {
+    List<string> list = new List<string>();
+    
+    string[] words;
+    int maxlength = 0;
+    foreach(string word in wish.Split(' '))
+    {
+        if (word.Length > maxlength)
+        {
+            maxlength = word.Length;
+        }
+    }
+    string line = new String('*', maxlength + 4);
+    list.Add(line);
+    foreach(string word in wish.Split(' '))
+    {
+        string word1 = word;
+        string lineend = new String(' ', maxlength - word.Length + 1);
+        lineend += "*";
+        word1 = "* " + word + lineend;
+        list.Add(word1);
+    }
+    list.Add(line);
+    words = list.ToArray();
+    return words;
+}
+*/
